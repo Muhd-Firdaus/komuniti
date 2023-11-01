@@ -209,39 +209,30 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link @if(!in_array($currentRouteName, ['borang-AC1', 'borang-AC2', 'borang-AC3'])) collapsed @endif" data-bs-target="#soalan-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-          <i class="bi bi-house"></i><span>Rumah</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link @if($currentRouteName != 'rumah') collapsed @endif" href="/rumah">
+          <i class="bi bi-house"></i>
+          <span>Rumah</span>
         </a>
-        <ul id="soalan-nav" class="nav-content collapse @if(in_array($currentRouteName, ['borang-AC1', 'borang-AC2', 'borang-AC3'])) show @endif" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/borang-AC1" class="@if($currentRouteName == 'borang-AC1') active @endif">
-              <i class="bi bi-circle"></i><span>Borang AC1</span>
-            </a>
-          </li>
-          <li>
-            <a href="/borang-AC2" class="@if($currentRouteName == 'borang-AC2') active @endif">
-              <i class="bi bi-circle"></i><span>Borang AC2</span>
-            </a>
-          </li>
-          <li>
-            <a href="/borang-AC3" class="@if($currentRouteName == 'borang-AC3') active @endif">
-              <i class="bi bi-circle"></i><span>Borang AC3</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Borang Nav -->
+      </li><!-- End Rumah Nav -->
+      
       <li class="nav-item">
-        <a class="nav-link @if(!in_array($currentRouteName, ['list'])) collapsed @endif" data-bs-target="#matching-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
+        <a class="nav-link @if(!in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) collapsed @endif" data-bs-target="#ahli-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
           <i class="bi bi-people"></i><span>Ahli Isi Rumah</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="matching-nav" class="nav-content collapse @if(in_array($currentRouteName, ['list'])) show @endif" data-bs-parent="#sidebar-nav">
+        <ul id="ahli-nav" class="nav-content collapse @if(in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) show @endif" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="/list" class="@if($currentRouteName == 'list') active @endif">
-              <i class="bi bi-circle"></i><span>List</span>
+            <a href="/senarai-ahli" class="@if($currentRouteName == 'senarai-ahli') active @endif">
+              <i class="bi bi-circle"></i><span>Senarai</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tambah-ahli" class="@if($currentRouteName == 'tambah-ahli') active @endif">
+              <i class="bi bi-circle"></i><span>tambah ahli</span>
             </a>
           </li>
         </ul>
-      </li><!-- End Matching Nav -->
+      </li><!-- End Ahli Nav -->
+      
 
       {{-- <li class="nav-heading">Pages</li> --}}
 

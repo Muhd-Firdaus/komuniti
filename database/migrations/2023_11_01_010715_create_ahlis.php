@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ahlis', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('ic')->unique();
-            $table->string('email')->unique();
+            $table->string('ic')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('hubungan', 2)->nullable();
             $table->string('jantina', 2)->nullable();
             $table->string('dob', 11)->nullable();

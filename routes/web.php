@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AhliController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\rumahController;
-use App\Http\Controllers\borangController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,24 +61,23 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 Route::group(['middleware' => ['auth', 'user']], function() {
     // user routes here
     //dasboard
-    Route::get('/user/dashboard', function () {
-        return view('home')->name('user.dashboard');
-    });
+    Route::get('/user/dashboard', function () { return view('home')->name('user.dashboard'); });
     
-    //pasal rumah
-    Route::get('/rumah', [rumahController::class,'view']);
-    Route::get('/edit-rumah', [rumahController::class,'edit']);
+    //rumah
+    Route::get('/rumah', [rumahController::class,'view'])->name('rumah');
     Route::post('/update-rumah', [rumahController::class, 'update']);
 
     //ahli
-    Route::get('/ahli', [AhliController::class,'view']);
-    Route::get('/tambah-ahli', function () { return view('AIR/tambahAIR'); });
+    Route::get('/senarai-ahli', [AhliController::class,'view'])->name('senarai-ahli');
+    Route::get('/tambah-ahli', [AhliController::class,'add'])->name('tambah-ahli');
     Route::post('/tambah-ahli', [AhliController::class,'store']);
-    Route::post('/edit-ahli', [AhliController::class,'edit']);
-    // Route::get('/edit-ahli/{id}', [AhliController::class,'edit']);
+    // Route::post('/edit-ahli', [AhliController::class,'edit']);
+    Route::get('/edit-ahli/{id}', [AhliController::class,'edit']);
     Route::post('/update-ahli', [AhliController::class,'update']);
     Route::delete('/delete-ahli/{id}', [AhliController::class, 'destroy'])->name('delete');
 
-    //bil
+    //profile
+    Route::get('/profile', [UserController::class,'profile']);
+    Route::post('/profile-update', [UserController::class,'update']);
 });
 

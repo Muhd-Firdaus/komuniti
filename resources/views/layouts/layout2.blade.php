@@ -51,7 +51,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="/assets/img/logo1.png" alt="" class="register">
-                  <span class="d-none d-lg-block register">Banci Pertanian</span>
+                  <span class="d-none d-lg-block register">Komuniti</span>
                 </a>
               </div><!-- End Logo -->
 
