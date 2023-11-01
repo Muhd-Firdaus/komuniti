@@ -53,22 +53,22 @@
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label ">Nama / Name</div>
-                <div class="col-lg-9 col-md-8">{{ auth()->user()->name }}</div>
+                <div class="col-lg-9 col-md-8">{{ $record->name }}</div>
                 </div>
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label">IC</div>
-                <div class="col-lg-9 col-md-8">{{ auth()->user()->ic }}</div>
+                <div class="col-lg-9 col-md-8">{{ $record->ic }}</div>
                 </div>
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label">Email</div>
-                <div class="col-lg-9 col-md-8">{{ auth()->user()->email }}</div>
+                <div class="col-lg-9 col-md-8">{{ $record->email }}</div>
                 </div>
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label">Phone</div>
-                <div class="col-lg-9 col-md-8">{{ auth()->user()->phone }}</div>
+                <div class="col-lg-9 col-md-8">{{ $record->phone }}</div>
                 </div>
 
             </div>
@@ -92,28 +92,28 @@
                     <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama / Name</label>
                         <div class="col-md-8 col-lg-9">
-                        <input name="name" type="text" class="form-control" id="fullName" value="{{ auth()->user()->name }}">
+                        <input name="name" type="text" class="form-control" id="fullName" value="{{ $record->name }}">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">IC</label>
                         <div class="col-md-8 col-lg-9">
-                        <input name="ic" type="text" class="form-control" id="ic" value="{{ auth()->user()->ic }}">
+                        <input name="ic" type="text" class="form-control" id="ic" value="{{ $record->ic }}">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                         <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="{{ auth()->user()->email }}">
+                        <input name="email" type="email" class="form-control" id="Email" value="{{ $record->email }}">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                         <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="{{ auth()->user()->phone }}">
+                        <input name="phone" type="text" class="form-control" id="Phone" value="{{ $record->phone }}">
                         </div>
                     </div>
 

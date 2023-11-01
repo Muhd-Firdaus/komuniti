@@ -64,7 +64,6 @@ class AhliController extends Controller
             $ahli->hubungan = $validatedData['hubungan'];
             $ahli->dob = $validatedData['dob'];
             $ahli->rumah_id = $rumah->id;
-            $ahli->kir_id = auth()->user()->id;
             $ahli->save();
         
             return redirect('/senarai-ahli')->with('success', 'Record Successfully Stored!');

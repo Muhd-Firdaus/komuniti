@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('dob', 11)->nullable();
             $table->string('telefon', 12)->nullable();
             $table->integer('rumah_id')->nullable();
-            $table->integer('kir_id');
+            $table->integer('kir_id')->nullable();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ahli;
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class UserController extends Controller
 {
     public function profile()
     {
-        return view('profile/profile');
+        $record = Ahli::where('kir_id', auth()->user()->id)->first();
+        return view('profile/profile',compact('record'));
     }
 
     public function update(Request $request)
