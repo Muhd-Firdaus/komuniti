@@ -1,6 +1,6 @@
 @extends('layouts\layout')
 
-@section('title', 'Dashboard - Banci Pertanian')
+@section('title', 'Dashboard - Komuniti')
 
 @section('content')
     <div class="pagetitle">
