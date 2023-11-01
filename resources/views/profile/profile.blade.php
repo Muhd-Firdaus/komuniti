@@ -68,7 +68,7 @@
 
                 <div class="row">
                 <div class="col-lg-3 col-md-4 label">Phone</div>
-                <div class="col-lg-9 col-md-8">{{ $record->phone }}</div>
+                <div class="col-lg-9 col-md-8">{{ $record->telefon }}</div>
                 </div>
 
             </div>
@@ -113,7 +113,7 @@
                     <div class="row mb-3">
                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                         <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="{{ $record->phone }}">
+                        <input name="telefon" type="text" class="form-control" id="Phone" value="{{ $record->telefon }}">
                         </div>
                     </div>
 

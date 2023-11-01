@@ -23,13 +23,15 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail(auth()->user()->id);
+            $ahli = Ahli::where('kir_id', auth()->user()->id)->first();
             $validatedData = $request->validate([
                 'email'      => 'required|max:100',
                 'name'      => 'required|max:100',
                 'ic'      => 'required|max:12',
-                'phone'   => 'nullable|max:15|min:7',
+                'telefon'   => 'nullable|max:15|min:7',
             ]);          
 
+            $ahli->update($validatedData);
             $user->update($validatedData);
                 
             return redirect('/profile')->with('success', 'User Updated Successfully.');
