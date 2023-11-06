@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AhliController;
+use App\Http\Controllers\BilController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\rumahController;
 use App\Http\Controllers\UserController;
@@ -79,5 +80,8 @@ Route::group(['middleware' => ['auth', 'user']], function() {
     //profile
     Route::get('/profile', [UserController::class,'profile']);
     Route::post('/profile-update', [UserController::class,'update']);
+
+    //bil rumah
+    Route::get('/bil-rumah', [BilController::class,'view'])->name('bil-rumah');
 });
 

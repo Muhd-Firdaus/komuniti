@@ -200,7 +200,7 @@
       $currentRouteName = Route::currentRouteName();
   @endphp
   <aside id="sidebar" class="sidebar">
-
+    
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link @if($currentRouteName != 'dashboard') collapsed @endif" href="/dashboard">
@@ -208,31 +208,46 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link @if($currentRouteName != 'rumah') collapsed @endif" href="/rumah">
-          <i class="bi bi-house"></i>
-          <span>Rumah</span>
-        </a>
-      </li><!-- End Rumah Nav -->
+      @if (auth()->user()->role === '1') {{-- admin nav --}}
+        <li class="nav-item">
+          <a class="nav-link @if($currentRouteName != 'senarai-rumah') collapsed @endif" href="/senarai-rumah">
+            <i class="bi bi-house"></i>
+            <span>Senarai Rumah</span>
+          </a>
+        </li><!-- End Rumah Nav -->
       
-      <li class="nav-item">
-        <a class="nav-link @if(!in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) collapsed @endif" data-bs-target="#ahli-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
-          <i class="bi bi-people"></i><span>Ahli Isi Rumah</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="ahli-nav" class="nav-content collapse @if(in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) show @endif" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="/senarai-ahli" class="@if($currentRouteName == 'senarai-ahli') active @endif">
-              <i class="bi bi-circle"></i><span>Senarai</span>
-            </a>
-          </li>
-          <li>
-            <a href="/tambah-ahli" class="@if($currentRouteName == 'tambah-ahli') active @endif">
-              <i class="bi bi-circle"></i><span>tambah ahli</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Ahli Nav -->
-      
+      @elseif (auth()->user()->role === '2') {{-- user nav --}}
+        <li class="nav-item">
+          <a class="nav-link @if($currentRouteName != 'rumah') collapsed @endif" href="/rumah">
+            <i class="bi bi-house"></i>
+            <span>Rumah</span>
+          </a>
+        </li><!-- End Rumah Nav -->
+        
+        <li class="nav-item">
+          <a class="nav-link @if(!in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) collapsed @endif" data-bs-target="#ahli-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
+            <i class="bi bi-people"></i><span>Ahli Isi Rumah</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul id="ahli-nav" class="nav-content collapse @if(in_array($currentRouteName, ['senarai-ahli', 'tambah-ahli'])) show @endif" data-bs-parent="#sidebar-nav">
+            <li>
+              <a href="/senarai-ahli" class="@if($currentRouteName == 'senarai-ahli') active @endif">
+                <i class="bi bi-circle"></i><span>Senarai</span>
+              </a>
+            </li>
+            <li>
+              <a href="/tambah-ahli" class="@if($currentRouteName == 'tambah-ahli') active @endif">
+                <i class="bi bi-circle"></i><span>tambah ahli</span>
+              </a>
+            </li>
+          </ul>
+        </li><!-- End Ahli Nav -->
+        <li class="nav-item">
+          <a class="nav-link @if($currentRouteName != 'bil-rumah') collapsed @endif" href="/bil-rumah">
+            <i class="bi bi-list-check"></i>
+            <span>Bil Rumah</span>
+          </a>
+        </li><!-- Bil Rumah Nav -->
+      @endif    
 
       {{-- <li class="nav-heading">Pages</li> --}}
 
