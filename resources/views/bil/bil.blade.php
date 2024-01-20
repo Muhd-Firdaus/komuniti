@@ -20,7 +20,13 @@
                     <div class="card-body">
                         <h5 class="card-title">Caj Semasa</h5>
                           <div class="ps-3">
-                            <h6>RM {{ $currentbil->caj + $currentbil->tunggakan }}</h6>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6>RM {{ $currentbil->caj + $currentbil->tunggakan }}</h6>
+                                @if ($currentbil->status !== 1)
+                                    <a href="{{ url('/tambah-ahli') }}"><button type="submit" class="btn btn-success"><i class="bi bi-credit-card"> Bayar</i></button></a>
+                                @endif
+                                
+                            </div>
                             <span class="text-muted small pt-2 ps-1">Caj semasa: </span><span class="text-primary small pt-1 fw-bold">RM {{ $currentbil->caj }}</span>
                             <br>
                             <span class="text-muted small pt-2 ps-1">Tunggakan: </span><span class="text-danger small pt-1 fw-bold">RM {{ $currentbil->tunggakan }}</span>
@@ -32,6 +38,7 @@
                             @else
                                 <span class="text-danger small pt-1 fw-bold">Belum Dibayar</span>
                             @endif
+                            
                           </div>
                     </div>
                 </div>

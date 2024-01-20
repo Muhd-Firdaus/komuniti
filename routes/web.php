@@ -83,5 +83,6 @@ Route::group(['middleware' => ['auth', 'user']], function() {
 
     //bil rumah
     Route::get('/bil-rumah', [BilController::class,'view'])->name('bil-rumah');
+    Route::get('/bil-rumah/bayar', [BilController::class,'view'])->name('bil-rumah');
 });
 
